@@ -6,7 +6,7 @@ export const scrollToSection = (id: string) => {
 };
 
 export const getActiveSection = (): string => {
-  const sections = ['home', 'about', 'projects', 'contact'];
+  const sections = ['home', 'experience', 'education', 'projects', 'tech'];
   const scrollPosition = window.scrollY + 100;
 
   for (const section of sections) {

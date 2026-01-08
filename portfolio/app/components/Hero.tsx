@@ -1,32 +1,64 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface HeroProps {
   name: string;
   title: string;
-  onSectionClick: (section: string) => void;
+  description: string;
 }
 
-export default function Hero({ name, title, onSectionClick }: HeroProps) {
+export default function Hero({ name, title, description }: HeroProps) {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Hello, I&apos;m {name}.
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 text-zinc-600 dark:text-zinc-400">
-          {title}
-        </p>
-        <button
-          onClick={() => onSectionClick('projects')}
-          className="inline-flex items-center gap-2 text-lg font-medium hover:opacity-70 transition-opacity group"
+    <div className="px-6 py-20">
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.h1
+          className="text-6xl md:text-9xl font-bold mb-8 leading-tight text-[var(--foreground)]"
+          style={{ fontFamily: 'var(--font-playfair)' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          View my work
-          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-        </button>
+          Hi, I'm {name.split(' ')[0]}
+        </motion.h1>
+
+        <motion.p
+          className="text-xl md:text-2xl text-[var(--foreground)]/80 mb-10 leading-relaxed max-w-3xl mx-auto"
+          style={{ fontFamily: 'var(--font-merriweather)' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          {description}
+        </motion.p>
+
+        <motion.div
+          className="flex items-center justify-center gap-6 mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <a
+            href="https://github.com/MohitMadnani"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] transition-colors text-[var(--foreground)]"
+            aria-label="GitHub"
+          >
+            <Github className="h-6 w-6" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mohit-madnani-1a1a19322/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] transition-colors text-[var(--foreground)]"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+        </motion.div>
       </div>
-    </section>
+    </div>
   );
 }
-

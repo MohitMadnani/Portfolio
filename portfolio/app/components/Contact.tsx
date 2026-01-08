@@ -9,17 +9,17 @@ interface ContactProps {
 
 export default function Contact({ contact }: ContactProps) {
   return (
-    <section id="contact" className="py-24 px-6">
+    <div className="px-6 py-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-6">Contact</h2>
-        <p className="text-lg text-zinc-700 dark:text-zinc-300 mb-8">
+        <h2 className="text-3xl font-bold mb-3 text-black dark:text-white animate-fade-in-up">Contact</h2>
+        <p className="text-base text-black/70 dark:text-white/70 mb-4 animate-fade-in-up animate-delay-100">
           Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.
         </p>
-        <div className="space-y-4">
+        <div className="space-y-3 animate-fade-in-up animate-delay-200">
           <div>
             <a
               href={`mailto:${contact.email}`}
-              className="text-lg hover:opacity-70 transition-opacity"
+              className="text-base text-black dark:text-white hover:opacity-70 transition-opacity"
             >
               {contact.email}
             </a>
@@ -30,7 +30,7 @@ export default function Contact({ contact }: ContactProps) {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-70 transition-opacity"
+                className="hover:opacity-70 transition-opacity text-black dark:text-white"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-6 w-6" />
@@ -41,7 +41,7 @@ export default function Contact({ contact }: ContactProps) {
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-70 transition-opacity"
+                className="hover:opacity-70 transition-opacity text-black dark:text-white"
                 aria-label="GitHub"
               >
                 <Github className="h-6 w-6" />
@@ -52,7 +52,7 @@ export default function Contact({ contact }: ContactProps) {
                 href={contact.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-70 transition-opacity"
+                className="hover:opacity-70 transition-opacity text-black dark:text-white"
                 aria-label="Twitter"
               >
                 <Linkedin className="h-6 w-6" />
@@ -61,7 +61,7 @@ export default function Contact({ contact }: ContactProps) {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

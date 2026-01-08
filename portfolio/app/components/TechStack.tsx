@@ -1,24 +1,63 @@
-interface TechStackProps {
-  techStack: string[];
-}
+'use client';
 
-export default function TechStack({ techStack }: TechStackProps) {
+import { motion } from 'framer-motion';
+import { portfolioData } from '../data/portfolio-data';
+
+export default function TechStack() {
+  const { techStack } = portfolioData;
+
+  const containerVariants = {
+    hidden: { opacity: 0.8 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0.7, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
-    <section id="tech" className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12">Tech Stack</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="min-h-screen bg-background py-24 px-6 md:px-12 flex items-center justify-center">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="max-w-4xl w-full"
+      >
+        <motion.div variants={itemVariants} className="mb-16 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Tech Stack
+          </h1>
+          <p className="text-foreground/60 text-lg" style={{ fontFamily: 'var(--font-merriweather)' }}>
+            This list highlights my main technologies and tools.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-wrap justify-center gap-3">
           {techStack.map((tech, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="px-5 py-3 bg-secondary/30 backdrop-blur-sm border border-border/50 text-foreground font-medium rounded-lg text-sm md:text-base cursor-default hover:border-primary/50 hover:bg-secondary/50 transition-all"
             >
-              <span className="font-medium">{tech}</span>
-            </div>
+              {tech}
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 }
-

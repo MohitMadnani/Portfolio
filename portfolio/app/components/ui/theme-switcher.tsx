@@ -25,11 +25,11 @@ export function ThemeSwitcher() {
     // Render placeholder to prevent hydration mismatch
     return (
       <button
-        className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         aria-label="Theme switcher"
         disabled
       >
-        <Sun className="h-5 w-5" />
+        <Sun className="h-5 w-5 text-black dark:text-white" />
       </button>
     );
   }
@@ -49,7 +49,7 @@ export function ThemeSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+          className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-black dark:text-white"
           aria-label="Theme switcher"
         >
           {getIcon()}

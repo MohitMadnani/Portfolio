@@ -3,6 +3,7 @@ export interface Experience {
   company: string;
   period: string;
   description: string;
+  image?: string;
 }
 
 export interface Education {
@@ -10,6 +11,7 @@ export interface Education {
   institution: string;
   period: string;
   description: string;
+  image?: string;
 }
 
 export interface Project {
@@ -30,7 +32,7 @@ export interface Contact {
 
 export const portfolioData = {
   personal: {
-    name: 'Mohit',
+    name: 'Mohit Madnani',
     title: 'Software Engineer',
     description: 'A dedicated Software Engineer passionate about creating scalable solutions and innovative applications. With expertise in full-stack development, I bring ideas to life through clean code and thoughtful architecture. I thrive on solving complex problems and building products that make a meaningful impact.',
   },

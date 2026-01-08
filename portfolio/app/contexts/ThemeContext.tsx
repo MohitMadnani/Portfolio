@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useRef, useState, startTransition } from 'react';
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'light' | 'dark';
 type ResolvedTheme = 'light' | 'dark';
 
 interface ThemeContextType {
@@ -12,11 +12,6 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-function getSystemTheme(): ResolvedTheme {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
 
 function applyTheme(resolvedTheme: ResolvedTheme) {
   if (typeof window === 'undefined') return;
@@ -29,64 +24,38 @@ function applyTheme(resolvedTheme: ResolvedTheme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Always start with 'light' to ensure SSR/client match, then update after mount
+  // Default to light mode
   const [theme, setThemeState] = useState<Theme>('light');
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>('light');
   const mountedRef = useRef(false);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
+    setResolvedTheme(newTheme);
     
     if (typeof window !== 'undefined') {
       localStorage.setItem('theme', newTheme);
     }
 
-    let resolved: ResolvedTheme;
-    if (newTheme === 'system') {
-      resolved = getSystemTheme();
-    } else {
-      resolved = newTheme;
-    }
-
-    setResolvedTheme(resolved);
-    applyTheme(resolved);
+    applyTheme(newTheme);
   };
 
   useEffect(() => {
-    // Mark as mounted
     mountedRef.current = true;
     
-    // Check for saved theme preference or default to system
-    const savedTheme = (localStorage.getItem('theme') as Theme) || 'system';
-    const initialResolved = savedTheme === 'system' ? getSystemTheme() : savedTheme;
+    // Check for saved theme preference, default to light
+    const savedTheme = (localStorage.getItem('theme') as Theme) || 'light';
     
     // Update DOM immediately
-    applyTheme(initialResolved);
+    applyTheme(savedTheme);
     
-    // Update theme state in a transition to avoid blocking
+    // Update theme state
     startTransition(() => {
       setThemeState(savedTheme);
-      setResolvedTheme(initialResolved);
+      setResolvedTheme(savedTheme);
     });
   }, []);
 
-  // Listen for system theme changes when theme is 'system'
-  useEffect(() => {
-    if (theme !== 'system' || !mountedRef.current) return;
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      const newResolved = e.matches ? 'dark' : 'light';
-      setResolvedTheme(newResolved);
-      applyTheme(newResolved);
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [theme]);
-
-  // Always provide the context, even before mounting
-  // This prevents the "must be used within ThemeProvider" error
   const value = {
     theme,
     resolvedTheme,
@@ -103,4 +72,3 @@ export function useTheme() {
   }
   return context;
 }
-

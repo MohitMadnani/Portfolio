@@ -66,7 +66,7 @@ export const portfolioData = {
       tech: ['React', 'PostgreSQL', 'Spring Boot', 'Python', 'Playwright', 'Pandas', 'Scikit-learn'],
       link: '#',
       github: 'https://github.com/MohitMadnani',
-      image: '/premier-team.jpg',
+      image: '/projects/premteam.jpg',
     },
     {
       title: 'Data Scraping with Python Playwright',

@@ -13,18 +13,18 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navigation />
       
-      <main className="flex-1 px-6 sm:px-8 py-28">
+      <main className="flex-1 px-4 sm:px-6 md:px-8 py-20 sm:py-28">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <h1 
-            className="text-3xl sm:text-4xl font-bold mb-12 text-center animate-fade-in-up"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center animate-fade-in-up"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
             Cool things <span className="text-primary">I&apos;ve built</span>
           </h1>
 
-          {/* Projects Grid - 2 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Projects Grid - 2 columns on larger screens */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {projects.map((project, idx) => (
               <div
                 key={idx}
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               >
                 {/* Project Image */}
                 {project.image && (
-                  <div className="relative w-full h-36 bg-accent overflow-hidden">
+                  <div className="relative w-full h-32 sm:h-36 md:h-40 bg-accent overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -44,23 +44,23 @@ export default function ProjectsPage() {
                 )}
                 
                 {/* Project Content */}
-                <div className="p-5 flex flex-col flex-1">
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
                   {/* Project Title */}
-                  <div className="flex items-start gap-3 mb-3">
+                  <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
                     {!project.image && (
-                      <div className="shrink-0 w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
+                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-accent flex items-center justify-center">
                         <FolderGit2 className="w-4 h-4 text-primary" />
                       </div>
                     )}
-                    <h2 className="text-base font-bold group-hover:text-primary transition-colors">
+                    <h2 className="text-sm sm:text-base font-bold group-hover:text-primary transition-colors leading-tight">
                       {project.title}
                     </h2>
                   </div>
                   
                   {/* Description as bullet points */}
-                  <ul className="space-y-1 mb-4 flex-1">
+                  <ul className="space-y-1 mb-3 sm:mb-4 flex-1">
                     {project.description.split('. ').filter(s => s.trim()).slice(0, 2).map((point, pointIdx) => (
-                      <li key={pointIdx} className="flex gap-2 text-xs text-muted leading-relaxed">
+                      <li key={pointIdx} className="flex gap-2 text-[11px] sm:text-xs text-muted leading-relaxed">
                         <span className="text-primary mt-0.5 shrink-0">•</span>
                         <span>{point.trim().endsWith('.') ? point.trim() : `${point.trim()}.`}</span>
                       </li>
@@ -68,30 +68,30 @@ export default function ProjectsPage() {
                   </ul>
                   
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-1 mb-3 sm:mb-4">
                     {project.tech.slice(0, 4).map((tech, techIdx) => (
                       <span
                         key={techIdx}
-                        className="px-2 py-0.5 text-[10px] font-medium bg-accent text-primary rounded-full"
+                        className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-medium bg-accent text-primary rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="px-2 py-0.5 text-[10px] font-medium text-muted">
+                      <span className="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-muted">
                         +{project.tech.length - 4}
                       </span>
                     )}
                   </div>
 
                   {/* Links */}
-                  <div className="flex flex-wrap gap-3 mt-auto">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mt-auto">
                     {project.link && project.link !== '#' && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-medium text-foreground hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground hover:text-primary transition-colors py-1"
                       >
                         <ExternalLink className="w-3 h-3" />
                         View Deployed
@@ -102,7 +102,7 @@ export default function ProjectsPage() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-medium text-foreground hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground hover:text-primary transition-colors py-1"
                       >
                         <Github className="w-3 h-3" />
                         View on GitHub

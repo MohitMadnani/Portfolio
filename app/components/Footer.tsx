@@ -7,16 +7,16 @@ export default function Footer() {
   const { contact, personal } = portfolioData;
 
   return (
-    <footer className="bg-background py-12 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <footer className="bg-background py-8 sm:py-12 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
         {/* Social Links */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           {contact.github && (
             <a
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-primary transition-colors"
+              className="text-muted hover:text-primary transition-colors p-2 -m-2"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -27,7 +27,7 @@ export default function Footer() {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-primary transition-colors"
+              className="text-muted hover:text-primary transition-colors p-2 -m-2"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -36,7 +36,7 @@ export default function Footer() {
           {contact.email && (
             <a
               href={`mailto:${contact.email}`}
-              className="text-muted hover:text-primary transition-colors"
+              className="text-muted hover:text-primary transition-colors p-2 -m-2"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         {/* Built by */}
-        <p className="text-sm text-muted">
+        <p className="text-xs sm:text-sm text-muted">
           Built by {personal.name}
         </p>
       </div>

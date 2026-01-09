@@ -14,36 +14,36 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section - Centered */}
-      <main className="flex-1 flex items-center justify-center px-6 sm:px-8 py-20">
-        <div className="max-w-2xl mx-auto text-center">
+      <main className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
+        <div className="max-w-2xl mx-auto text-center w-full">
           <div className="animate-fade-in-up">
-            <div className="flex items-center justify-center gap-2 text-muted mb-4">
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm">London, United Kingdom</span>
+            <div className="flex items-center justify-center gap-2 text-muted mb-3 sm:mb-4">
+              <MapPin className="w-4 h-4 shrink-0" />
+              <span className="text-xs sm:text-sm">London, United Kingdom</span>
             </div>
             
             <h1 
-              className="text-4xl sm:text-5xl font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight px-2"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               Hi, I&apos;m{' '}
               <span className="text-primary">{name}</span>
             </h1>
             
-            <p className="text-base sm:text-lg text-muted mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-8 max-w-lg mx-auto leading-relaxed px-2">
               {description}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-8 px-4 sm:px-0">
               <Link
                 href="/projects"
-                className="px-6 py-3 bg-foreground text-background rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+                className="w-full sm:w-auto px-6 py-3 bg-foreground text-background rounded-full font-medium hover:opacity-90 transition-opacity text-sm text-center"
               >
                 View Projects
               </Link>
               <a
                 href={`mailto:${contact.email}`}
-                className="px-6 py-3 bg-transparent border border-border text-foreground rounded-full font-medium hover:bg-card transition-colors text-sm"
+                className="w-full sm:w-auto px-6 py-3 bg-transparent border border-border text-foreground rounded-full font-medium hover:bg-card transition-colors text-sm text-center"
               >
                 Contact Me
               </a>

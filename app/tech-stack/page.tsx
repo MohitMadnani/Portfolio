@@ -45,36 +45,36 @@ export default function TechStackPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navigation />
       
-      <main className="flex-1 px-6 sm:px-8 py-28">
+      <main className="flex-1 px-4 sm:px-6 md:px-8 py-20 sm:py-28">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <h1 
-            className="text-3xl sm:text-4xl font-bold mb-12 text-center animate-fade-in-up"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center animate-fade-in-up"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
             My Tech <span className="text-primary">Stack</span>
           </h1>
 
           {/* Categories */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {filteredCategories.map((category, catIdx) => (
               <div 
                 key={category.name}
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${(catIdx + 1) * 100}ms` }}
               >
-                <h2 className="text-sm font-semibold text-muted mb-4 uppercase tracking-wider">
+                <h2 className="text-xs sm:text-sm font-semibold text-muted mb-3 sm:mb-4 uppercase tracking-wider">
                   {category.name}
                 </h2>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2">
                   {category.items.map((tech, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border bg-card hover:border-primary hover:bg-accent transition-all cursor-default group"
+                      className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-lg border border-border bg-card hover:border-primary hover:bg-accent transition-all cursor-default group"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-125 transition-transform" />
-                      <span className="font-medium text-sm">{tech}</span>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary group-hover:scale-125 transition-transform shrink-0" />
+                      <span className="font-medium text-xs sm:text-sm truncate">{tech}</span>
                     </div>
                   ))}
                 </div>
@@ -87,18 +87,18 @@ export default function TechStackPage() {
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${(filteredCategories.length + 1) * 100}ms` }}
               >
-                <h2 className="text-sm font-semibold text-muted mb-4 uppercase tracking-wider">
+                <h2 className="text-xs sm:text-sm font-semibold text-muted mb-3 sm:mb-4 uppercase tracking-wider">
                   Other
                 </h2>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2">
                   {uncategorized.map((tech, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border bg-card hover:border-primary hover:bg-accent transition-all cursor-default group"
+                      className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-lg border border-border bg-card hover:border-primary hover:bg-accent transition-all cursor-default group"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-125 transition-transform" />
-                      <span className="font-medium text-sm">{tech}</span>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary group-hover:scale-125 transition-transform shrink-0" />
+                      <span className="font-medium text-xs sm:text-sm truncate">{tech}</span>
                     </div>
                   ))}
                 </div>

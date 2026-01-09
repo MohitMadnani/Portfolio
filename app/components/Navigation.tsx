@@ -43,12 +43,12 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo - Far Left */}
             <Link
               href="/"
-              className="text-lg font-bold text-foreground hover:text-primary transition-colors"
+              className="text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors truncate max-w-[160px] sm:max-w-none"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               Mohit Madnani

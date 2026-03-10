@@ -105,7 +105,7 @@ export default function ProjectsPage() {
                         className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground hover:text-primary transition-colors py-1"
                       >
                         <Github className="w-3 h-3" />
-                        View on GitHub
+                        View on GitHub/Website
                       </a>
                     )}
                   </div>

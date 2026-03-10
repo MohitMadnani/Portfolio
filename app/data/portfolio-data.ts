@@ -42,7 +42,7 @@ export const portfolioData = {
       company: 'Hyperlink',
       period: 'Oct 2025 – Present',
       description:
-        'Collaborated on database architecture using PostgreSQL, with forward planning for Supabase migration to enhance real-time data sync and developer experience. Authored internal technical documentation and API references to streamline cross-functional development and onboard new engineers. Engineered scalable back-end services using FastAPI and RESTful architecture to support real-time pod telemetry and control systems.',
+        'Collaborated within a 6-person engineering team to architect, develop, and deploy a production-ready full-stack platform, contributing across system design, implementation, and release. Applied the full Software Development Cycle (SDLC) in an agile team environment, participating in requirement analysis, architectural design, iterative development, testing and production deployment to ensure high-quality, maintainable software delivery.',
     },
   ] as Experience[],
   education: [
@@ -69,12 +69,12 @@ export const portfolioData = {
       image: '/projects/musicaigen.png',
     },
     {
-      title: 'Premier Team (Full-Stack)',
-      description: 'Created comprehensive back-end that handles CRUD operations on data from the PostgreSQL database. Designed a responsive front-end layout using React component architecture with specific color schemes and animations. Ensured data scraping over 700+ players from the Premier League using Python Playwright.',
-      tech: ['React', 'PostgreSQL', 'Spring Boot', 'Python', 'Playwright', 'Pandas', 'Scikit-learn'],
+      title: 'Inventory App with Hyperlink',
+      description: 'Designed and enforced robust database security using Supabase Row Level Security (RLS) policies, and refactored frontend SQL queries into secure RPC functions to enhance scalability, performance, and maintainability. Implemented secure authentication and authorization using NextAuth in Next.js and Supabase, building interactive, type-safe sign-in and onboarding flows with TypeScript for 6 teams and 40–50 active members. Developed scalable backend services using FastAPI and RESTful architecture, enabling efficient API communication, structured data validation, and seamless integration with the Supabase database layer.',
+      tech: ['Next.js', 'Supabase', 'Git'],
       link: '#',
-      github: 'https://github.com/MohitMadnani/PremTeam',
-      image: '/projects/premteam.jpg',
+      github: 'https://inventory.hyperlinklondon.com',
+      image: '/projects/Hyperlinklogo.png',
     },
     {
       title: 'Data Scraping with Python Playwright',

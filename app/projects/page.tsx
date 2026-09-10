@@ -12,11 +12,11 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 px-4 sm:px-6 md:px-8 py-20 sm:py-28">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <h1 
+          <h1
             className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center animate-fade-in-up"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
                     />
                   </div>
                 )}
-                
+
                 {/* Project Content */}
                 <div className="p-4 sm:p-5 flex flex-col flex-1">
                   {/* Project Title */}
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
                       {project.title}
                     </h2>
                   </div>
-                  
+
                   {/* Description as bullet points */}
                   <ul className="space-y-1 mb-3 sm:mb-4 flex-1">
                     {project.description.split('. ').filter(s => s.trim()).slice(0, 2).map((point, pointIdx) => (
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
                       </li>
                     ))}
                   </ul>
-                  
+
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-1 mb-3 sm:mb-4">
                     {project.tech.slice(0, 4).map((tech, techIdx) => (
@@ -86,17 +86,6 @@ export default function ProjectsPage() {
 
                   {/* Links */}
                   <div className="flex flex-wrap gap-2 sm:gap-3 mt-auto">
-                    {project.link && project.link !== '#' && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground hover:text-primary transition-colors py-1"
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        View Deployed
-                      </a>
-                    )}
                     {project.github && project.github !== '#' && (
                       <a
                         href={project.github}

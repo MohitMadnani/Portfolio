@@ -8,19 +8,19 @@ import { portfolioData } from '../data/portfolio-data';
 const techCategories = [
   {
     name: 'Languages',
-    items: ['JavaScript', 'Java', 'Python', 'SQL', 'TypeScript', 'HTML', 'CSS'],
+    items: ['JavaScript', 'Java', 'Python', 'SQL', 'TypeScript', 'HTML', 'CSS', 'PostgreSQL'],
   },
   {
     name: 'Frameworks & Libraries',
-    items: ['React', 'Next.js', 'Spring Boot', 'FastAPI', 'Tailwind CSS', 'Pandas', 'Scikit-learn'],
+    items: ['React', 'Next.js', 'FastAPI', 'Pandas', 'Playwright'],
   },
   {
     name: 'Databases',
-    items: ['PostgreSQL', 'MongoDB', 'MySQL', 'Supabase', 'Redis'],
+    items: ['Supabase', 'Neon'],
   },
   {
     name: 'Tools & Platforms',
-    items: ['Docker', 'Git', 'GitHub', 'VS Code', 'Figma', 'Linux', 'Playwright'],
+    items: ['Docker', 'Git', 'Claude Code', 'Cursor'],
   },
 ];
 
@@ -30,7 +30,7 @@ export default function TechStackPage() {
   // Filter categories to only show techs that exist in portfolioData
   const filteredCategories = techCategories.map(category => ({
     ...category,
-    items: category.items.filter(item => 
+    items: category.items.filter(item =>
       techStack.some(tech => tech.toLowerCase() === item.toLowerCase())
     ),
   })).filter(category => category.items.length > 0);
@@ -44,11 +44,11 @@ export default function TechStackPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 px-4 sm:px-6 md:px-8 py-20 sm:py-28">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <h1 
+          <h1
             className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center animate-fade-in-up"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
@@ -58,7 +58,7 @@ export default function TechStackPage() {
           {/* Categories */}
           <div className="space-y-6 sm:space-y-8">
             {filteredCategories.map((category, catIdx) => (
-              <div 
+              <div
                 key={category.name}
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${(catIdx + 1) * 100}ms` }}
@@ -66,7 +66,7 @@ export default function TechStackPage() {
                 <h2 className="text-xs sm:text-sm font-semibold text-muted mb-3 sm:mb-4 uppercase tracking-wider">
                   {category.name}
                 </h2>
-                
+
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2">
                   {category.items.map((tech, idx) => (
                     <div
@@ -83,14 +83,14 @@ export default function TechStackPage() {
 
             {/* Uncategorized */}
             {uncategorized.length > 0 && (
-              <div 
+              <div
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${(filteredCategories.length + 1) * 100}ms` }}
               >
                 <h2 className="text-xs sm:text-sm font-semibold text-muted mb-3 sm:mb-4 uppercase tracking-wider">
                   Other
                 </h2>
-                
+
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2">
                   {uncategorized.map((tech, idx) => (
                     <div

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display, Merriweather } from "next/font/goo
 import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
+import ChatAssistant from "./components/ChatAssistant";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ScrollToTop />
           {children}
+          <ChatAssistant />
         </ThemeProvider>
       </body>
     </html>

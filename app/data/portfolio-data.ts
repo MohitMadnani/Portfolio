@@ -38,7 +38,7 @@ export const portfolioData = {
   },
   experience: [
     {
-      title: 'Software Developer',
+      title: 'Software Engineer',
       company: 'Hyperlink',
       period: 'Oct 2025 – Jul 2026',
       description:

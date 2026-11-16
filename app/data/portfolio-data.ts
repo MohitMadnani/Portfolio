@@ -21,6 +21,7 @@ export interface Project {
   link?: string;
   github?: string;
   image?: string;
+  current?: boolean;
 }
 
 export interface Contact {
@@ -60,6 +61,15 @@ export const portfolioData = {
     },
   ] as Education[],
   projects: [
+    {
+      title: 'PremTeam',
+      description: 'Premier League player stats browser for the current season. Browse every player by team, nation or position, or search by name, with fantasy price, points, xG/xAG and injury news on each card, plus availability banners for doubtful, injured and suspended players. A Python pipeline pulls data from the Fantasy Premier League API into Supabase (Postgres) on a GitHub Actions schedule, served through a read-only Spring Boot API to a responsive React app.',
+      tech: ['React', 'Vite', 'Java', 'Spring Boot', 'Python', 'Supabase', 'PostgreSQL', 'GitHub Actions'],
+      link: 'https://prem-team.vercel.app',
+      github: 'https://github.com/MohitMadnani/PremTeam',
+      image: '/projects/premteam.jpg',
+      current: true,
+    },
     {
       title: 'MusicAI Generator',
       description: 'Full-stack AI-powered music generation application. Built with serverless architecture using Modal for ML inference, Inngest for background job orchestration, and Neon for database. Integrated Polar for payment processing and AWS for cloud infrastructure.',

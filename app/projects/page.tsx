@@ -40,6 +40,15 @@ export default function ProjectsPage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    {project.current && (
+                      <span className="absolute top-2 left-2 flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-full bg-background/90 text-primary border border-primary/40 backdrop-blur">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                        </span>
+                        Currently working on
+                      </span>
+                    )}
                   </div>
                 )}
 
